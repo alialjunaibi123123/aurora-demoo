@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aurora Smart Lighting Demo</title>
+<style>
+  body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background: #f0f8ff; }
+  h1 { color: #4a90e2; }
+  #lightBulb {
+    width: 100px; height: 150px; margin: 20px auto;
+    background: yellow; border-radius: 50% 50% 45% 45%;
+    box-shadow: 0 0 20px 5px yellow;
+    transition: background 0.5s, box-shadow 0.5s;
+  }
+  input[type="color"] {
+    margin: 20px 0;
+    width: 50px; height: 50px; border: none; cursor: pointer;
+  }
+  label { font-size: 1.1em; }
+  .info { max-width: 400px; margin: auto; font-size: 1.1em; }
+</style>
+</head>
+<body>
+  <h1>Aurora Smart Lighting Demo</h1>
+  <div id="lightBulb"></div>
+  <label for="colorPicker">Pick Light Color:</label><br />
+  <input type="color" id="colorPicker" value="#ffff00" />
+  <p class="info">
+    Use the color picker above to change the color of the smart light bulb.  
+    Experience how Aurora Smart Lighting can customize your home lighting mood instantly!
+  </p>
+  <script>
+    const lightBulb = document.getElementById('lightBulb');
+    const colorPicker = document.getElementById('colorPicker');
+
+    colorPicker.addEventListener('input', () => {
+      const color = colorPicker.value;
+      lightBulb.style.background = color;
+      lightBulb.style.boxShadow = `0 0 20px 5px ${color}`;
+    });
+  </script>
+</body>
+</html>
